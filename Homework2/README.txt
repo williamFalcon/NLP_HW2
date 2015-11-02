@@ -21,6 +21,12 @@ C - Projective Sentence:		root The giraffe ate the tiny lollipop.
 
 *******************************************
 QUESTION 2:
+A - Implementation complete.
+
+B - Scores with the badfeatures model on swedish are:
+	UAS: 0.229038040231 
+	LAS: 0.125473013344
+
 *******************************************
 
 

@@ -1395,9 +1395,9 @@
 9	-	_	IT	IT	_	10	AT	_	_
 10	vapen	_	NN	NN	_	0	PA	_	_
 11	,	_	IK	IK	_	0	IK	_	_
-12	verktyg	_	NN	NN	_	0	AA	_	_
-13	,	_	IK	IK	_	0	IK	_	_
-14	uniformer	_	NN	NN	_	0	AA	_	_
+12	verktyg	_	NN	NN	_	0		_	_
+13	,	_	IK	IK	_	12	IK	_	_
+14	uniformer	_	NN	NN	_	12	AA	_	_
 15	m	_	AB	AB	_	0		_	_
 16	m	_	ID	ID	_	0		_	_
 17	,	_	IK	IK	_	16	IK	_	_
@@ -2506,7 +2506,7 @@
 10	doktorn	_	NN	NN	_	5	PA	_	_
 11	eller	_	++	++	_	12	AT	_	_
 12	sjukhuset	_	NN	NN	_	4	PA	_	_
-13	får	_	FV	FV	_	0	OA	_	_
+13	får	_	FV	FV	_	0		_	_
 14	du	_	PO	PO	_	0		_	_
 15	ersättning	_	VN	VN	_	0		_	_
 16	från	_	PR	PR	_	0		_	_
@@ -4047,7 +4047,7 @@
 5	städer	_	NN	NN	_	0	PA	_	_
 6	och	_	++	++	_	7	++	_	_
 7	också	_	AB	AB	_	5	CC	_	_
-8	på	_	PR	PR	_	0	OA	_	_
+8	på	_	PR	PR	_	0		_	_
 9	vissa	_	PO	PO	_	0		_	_
 10	orter	_	NN	NN	_	0		_	_
 11	som	_	PO	PO	_	12	SS	_	_
@@ -5032,7 +5032,7 @@
 6	emot	_	AB	AB	_	9	AT	_	_
 7	och	_	++	++	_	8	++	_	_
 8	lämnar	_	VV	VV	_	6	CC	_	_
-9	ut	_	AB	AB	_	0	PL	_	_
+9	ut	_	AB	AB	_	0		_	_
 10	paket	_	NN	NN	_	0		_	_
 11	.	_	IP	IP	_	10	IP	_	_
 
@@ -5315,8 +5315,8 @@
 3	och	_	++	++	_	4	++	_	_
 4	adresskort	_	NN	NN	_	2	CC	_	_
 5	körs	_	VV	VV	_	0	PA	_	_
-6	ut	_	AB	AB	_	0	PL	_	_
-7	till	_	PR	PR	_	0	OA	_	_
+6	ut	_	AB	AB	_	0		_	_
+7	till	_	PR	PR	_	0		_	_
 8	adressatens	_	NN	NN	_	0		_	_
 9	bostad	_	NN	NN	_	0		_	_
 10	,	_	IK	IK	_	9	IK	_	_

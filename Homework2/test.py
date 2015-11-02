@@ -4,6 +4,7 @@ from providedcode.transitionparser import TransitionParser
 from providedcode.evaluate import DependencyEvaluator
 from featureextractor import FeatureExtractor
 from transition import Transition
+from svmfeatureoptimizer import FeatureOptimizer
 
 if __name__ == '__main__':
 
@@ -13,14 +14,16 @@ if __name__ == '__main__':
     subdata = random.sample(data, 200)
 
     try:
-        tp = TransitionParser(Transition, FeatureExtractor)
+        feature_optimizer = FeatureOptimizer()
+
+        tp = TransitionParser(Transition, FeatureExtractor, feature_optimizer)
         tp.train(subdata)
         tp.save('swedish.model')
 
         testdata = dataset.get_swedish_test_corpus().parsed_sents()
         tp = TransitionParser.load('badfeatures.model')
 
-        parsed = tp.parse(testdata)
+        parsed = tp.parse(testdata, feature_optimizer)
 
         with open('test.conll', 'w') as f:
             for p in parsed:
