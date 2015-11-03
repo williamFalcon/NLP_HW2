@@ -10,8 +10,8 @@ if __name__ == '__main__':
 
     # load test set in swedish and get 200 random sentences
     data = dataset.get_swedish_train_corpus().parsed_sents()
-    random.seed(1234)
-    subdata = random.sample(data, 200)
+    random.seed()
+    subdata = random.sample(data, 220)
 
     try:
         feature_optimizer = FeatureOptimizer()
@@ -21,7 +21,7 @@ if __name__ == '__main__':
         tp.save('swedish.model')
 
         testdata = dataset.get_swedish_test_corpus().parsed_sents()
-        tp = TransitionParser.load('badfeatures.model')
+        tp = TransitionParser.load('swedish.model')
 
         parsed = tp.parse(testdata, feature_optimizer)
 

@@ -12,7 +12,7 @@ class FeatureOptimizer():
 
     # Each feature is focused around a subject. These are the subject we will focus on.
     # first part of word shows data_source to use. Second part shows index of that datasource
-    feature_subjects = ['STK_-1', 'STK_-2', 'STK_-3', 'BUF_0', 'BUF_1', 'BUF_2']
+    feature_subjects = ['STK_-1', 'STK_-2', 'STK_-3', 'BUF_0', 'BUF_1', 'BUF_2', 'BUF_3']
     book_tests = ['']
 
     # Each of these is a feature of that token. They are vanilla because each is accesible via key value
@@ -24,8 +24,11 @@ class FeatureOptimizer():
     # combinations of all tests we will run
     tests = []
 
-    active_tests = ['STK_-1_WORD_', 'BUF_0_WORD_', 'STK_-1_LDEP_', 'STK_-1_RDEP_', 'STK_-1_FEATS_',
-                    'BUF_0_LDEP_', 'BUF_0_RDEP_', 'BUF_0_FEATS_'
+    active_tests = ['STK_-1_WORD_', 'STK_-1_TAG_', 'STK_-1_LEMMA_', 'STK_-1_LDEP_',
+                    'STK_-2_TAG_',
+                    'BUF_0_WORD_', 'BUF_0_TAG_', 'BUF_0_LEMMA_', 'BUF_0_LDEP_',
+                    'BUF_1_TAG_', 'BUF_1_WORD_',
+                    'BUF_2_TAG_'
                     ]
 
     possible_tests = ['STK_-1_WORD_', 'STK_-1_TAG_', 'STK_-1_LEMMA_', 'STK_-1_LDEP_', 'STK_-1_RDEP_', 'STK_-1_FEATS_',
@@ -33,7 +36,8 @@ class FeatureOptimizer():
                       'STK_-3_WORD_', 'STK_-3_TAG_', 'STK_-3_LEMMA_', 'STK_-3_LDEP_', 'STK_-3_RDEP_', 'STK_-3_FEATS_',
                       'BUF_0_WORD_', 'BUF_0_TAG_', 'BUF_0_LEMMA_', 'BUF_0_LDEP_', 'BUF_0_RDEP_', 'BUF_0_FEATS_',
                       'BUF_1_WORD_', 'BUF_1_TAG_', 'BUF_1_LEMMA_', 'BUF_1_LDEP_', 'BUF_1_RDEP_', 'BUF_1_FEATS_',
-                      'BUF_2_WORD_', 'BUF_2_TAG_', 'BUF_2_LEMMA_', 'BUF_2_LDEP_', 'BUF_2_RDEP_', 'BUF_2_FEATS_'
+                      'BUF_2_WORD_', 'BUF_2_TAG_', 'BUF_2_LEMMA_', 'BUF_2_LDEP_', 'BUF_2_RDEP_', 'BUF_2_FEATS_',
+                      'BUF_3_WORD_', 'BUF_3_TAG_', 'BUF_3_LEMMA_', 'BUF_3_LDEP_', 'BUF_3_RDEP_', 'BUF_3_FEATS_'
                       ]
 
 
