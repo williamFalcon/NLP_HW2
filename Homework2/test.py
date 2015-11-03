@@ -9,20 +9,34 @@ from svmfeatureoptimizer import FeatureOptimizer
 if __name__ == '__main__':
 
     # load test set in swedish and get 200 random sentences
-    data = dataset.get_swedish_train_corpus().parsed_sents()
+    swedish_data = dataset.get_swedish_train_corpus().parsed_sents()
     random.seed()
-    subdata = random.sample(data, 200)
+    swedish_subdata = random.sample(swedish_data, 200)
+
+    # load test set in english and get 200 random sentences
+    english_data = dataset.get_english_train_corpus().parsed_sents()
+    random.seed()
+    english_subdata = random.sample(english_data, 200)
+
+    # load test set in danish and get 200 random sentences
+    danish_data = dataset.get_danish_train_corpus().parsed_sents()
+    random.seed()
+    danish_subdata = random.sample(danish_data, 200)
 
     try:
         feature_optimizer = FeatureOptimizer()
 
+        print 'training swedish'
+
+        # swedish
         tp = TransitionParser(Transition, FeatureExtractor, feature_optimizer)
-        tp.train(subdata)
+        tp.train(swedish_subdata)
         tp.save('swedish.model')
 
         testdata = dataset.get_swedish_test_corpus().parsed_sents()
         tp = TransitionParser.load('swedish.model')
 
+        print 'testing swedish'
         parsed = tp.parse(testdata, feature_optimizer)
 
         with open('test.conll', 'w') as f:
@@ -31,7 +45,43 @@ if __name__ == '__main__':
                 f.write('\n')
 
         ev = DependencyEvaluator(testdata, parsed)
+        print 'Swedish results'
         print "UAS: {} \nLAS: {}".format(*ev.eval())
+
+
+        # english
+        print '\n----------------------\n'
+        print 'Training english'
+        tpe = TransitionParser(Transition, FeatureExtractor, feature_optimizer)
+        tpe.train(english_subdata)
+        tpe.save('english.model')
+
+        print 'testing english'
+        testdataE = dataset.get_english_dev_corpus().parsed_sents()
+        tpe = TransitionParser.load('english.model')
+
+        parsede = tpe.parse(testdataE, feature_optimizer)
+
+        eve = DependencyEvaluator(testdataE, parsede)
+        print 'English results'
+        print "UAS: {} \nLAS: {}".format(*eve.eval())
+
+        # danish
+        print '\n----------------------\n'
+        print 'Training Danish'
+        tpD = TransitionParser(Transition, FeatureExtractor, feature_optimizer)
+        tpD.train(danish_subdata)
+        tpD.save('danish.model')
+
+        print 'Testing Danish'
+        testdataD = dataset.get_danish_train_corpus().parsed_sents()
+        tpD = TransitionParser.load('danish.model')
+
+        parsedD = tpD.parse(testdataD, feature_optimizer)
+
+        evD = DependencyEvaluator(testdataD, parsedD)
+        print 'Danish results'
+        print "UAS: {} \nLAS: {}".format(*evD.eval())
 
         # parsing arbitrary sentences (english):
         # sentence = DependencyGraph.from_sentence('Hi, this is a test')

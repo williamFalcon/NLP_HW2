@@ -24,6 +24,27 @@ class FeatureOptimizer():
     # combinations of all tests we will run
     tests = []
 
+    danish_tests = ['STK_-1_WORD_', 'STK_-1_TAG_', 'STK_-1_LEMMA_', 'STK_-1_LDEP_', 'STK_-1_RDEP_',
+                    'STK_-2_TAG_',
+                    'BUF_0_WORD_', 'BUF_0_TAG_', 'BUF_0_LEMMA_', 'BUF_0_LDEP_', 'BUF_0_RDEP_',
+                    'BUF_1_TAG_', 'BUF_1_WORD_',
+                    'BUF_2_TAG_'
+                    ]
+
+    english_tests = ['STK_-1_WORD_', 'STK_-1_TAG_', 'STK_-1_LEMMA_', 'STK_-1_LDEP_', 'STK_-1_RDEP_',
+                    'STK_-2_TAG_',
+                    'BUF_0_WORD_', 'BUF_0_TAG_', 'BUF_0_LEMMA_', 'BUF_0_LDEP_', 'BUF_0_RDEP_',
+                    'BUF_1_TAG_', 'BUF_1_WORD_',
+                    'BUF_2_TAG_'
+                    ]
+
+    swedish_tests = ['STK_-1_WORD_', 'STK_-1_TAG_', 'STK_-1_LEMMA_', 'STK_-1_LDEP_', 'STK_-1_RDEP_',
+                    'STK_-2_TAG_',
+                    'BUF_0_WORD_', 'BUF_0_TAG_', 'BUF_0_LEMMA_', 'BUF_0_LDEP_', 'BUF_0_RDEP_',
+                    'BUF_1_TAG_', 'BUF_1_WORD_',
+                    'BUF_2_TAG_'
+                    ]
+
     active_tests = ['STK_-1_WORD_', 'STK_-1_TAG_', 'STK_-1_LEMMA_', 'STK_-1_LDEP_', 'STK_-1_RDEP_',
                     'STK_-2_TAG_',
                     'BUF_0_WORD_', 'BUF_0_TAG_', 'BUF_0_LEMMA_', 'BUF_0_LDEP_', 'BUF_0_RDEP_',
