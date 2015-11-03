@@ -11,7 +11,7 @@ if __name__ == '__main__':
     # load test set in swedish and get 200 random sentences
     data = dataset.get_swedish_train_corpus().parsed_sents()
     random.seed()
-    subdata = random.sample(data, 220)
+    subdata = random.sample(data, 200)
 
     try:
         feature_optimizer = FeatureOptimizer()
