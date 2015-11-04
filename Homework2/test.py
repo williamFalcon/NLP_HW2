@@ -4,7 +4,6 @@ from providedcode.transitionparser import TransitionParser
 from providedcode.evaluate import DependencyEvaluator
 from featureextractor import FeatureExtractor
 from transition import Transition
-from svmfeatureoptimizer import FeatureOptimizer
 
 if __name__ == '__main__':
 
@@ -24,12 +23,10 @@ if __name__ == '__main__':
     danish_subdata = random.sample(danish_data, 200)
 
     try:
-        feature_optimizer = FeatureOptimizer()
-
         print 'training swedish'
 
         # swedish
-        tp = TransitionParser(Transition, FeatureExtractor, feature_optimizer)
+        tp = TransitionParser(Transition, FeatureExtractor)
         tp.train(swedish_subdata)
         tp.save('swedish.model')
 
@@ -37,7 +34,7 @@ if __name__ == '__main__':
         tp = TransitionParser.load('swedish.model')
 
         print 'testing swedish'
-        parsed = tp.parse(testdata, feature_optimizer)
+        parsed = tp.parse(testdata)
 
         with open('test.conll', 'w') as f:
             for p in parsed:
@@ -52,7 +49,7 @@ if __name__ == '__main__':
         # english
         print '\n----------------------\n'
         print 'Training english'
-        tpe = TransitionParser(Transition, FeatureExtractor, feature_optimizer)
+        tpe = TransitionParser(Transition, FeatureExtractor)
         tpe.train(english_subdata)
         tpe.save('english.model')
 
@@ -60,7 +57,7 @@ if __name__ == '__main__':
         testdataE = dataset.get_english_dev_corpus().parsed_sents()
         tpe = TransitionParser.load('english.model')
 
-        parsede = tpe.parse(testdataE, feature_optimizer)
+        parsede = tpe.parse(testdataE)
 
         eve = DependencyEvaluator(testdataE, parsede)
         print 'English results'
@@ -69,7 +66,7 @@ if __name__ == '__main__':
         # danish
         print '\n----------------------\n'
         print 'Training Danish'
-        tpD = TransitionParser(Transition, FeatureExtractor, feature_optimizer)
+        tpD = TransitionParser(Transition, FeatureExtractor)
         tpD.train(danish_subdata)
         tpD.save('danish.model')
 
@@ -77,7 +74,7 @@ if __name__ == '__main__':
         testdataD = dataset.get_danish_train_corpus().parsed_sents()
         tpD = TransitionParser.load('danish.model')
 
-        parsedD = tpD.parse(testdataD, feature_optimizer)
+        parsedD = tpD.parse(testdataD)
 
         evD = DependencyEvaluator(testdataD, parsedD)
         print 'Danish results'

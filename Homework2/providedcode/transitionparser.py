@@ -25,7 +25,7 @@ class Configuration(object):
     This class also provides a method to represent a configuration as list of features.
     """
 
-    def __init__(self, dep_graph, feature_extractor, svm_optimizer):
+    def __init__(self, dep_graph, feature_extractor):
         """
         :param dep_graph: the representation of an input in the form of dependency graph.
         :type dep_graph: DependencyGraph where the dependencies are not specified.
@@ -38,7 +38,6 @@ class Configuration(object):
         self.arcs = []  # empty set of arc
         self._tokens = dep_graph.nodes
         self._max_address = len(self.buffer)
-        self._svm_optimizer = svm_optimizer
 
         self._user_feature_extractor = feature_extractor
 
@@ -51,21 +50,20 @@ class Configuration(object):
         Extracts features from the configuration
         :return: list(str)
         """
-        return self._user_feature_extractor(self._tokens, self.buffer, self.stack, self.arcs, self._svm_optimizer)
+        return self._user_feature_extractor(self._tokens, self.buffer, self.stack, self.arcs)
 
 class TransitionParser(object):
     """
     An arc-eager transition parser
     """
 
-    def __init__(self, transition, feature_extractor, svm_optimizer):
+    def __init__(self, transition, feature_extractor):
         self._dictionary = {}
         self._transition = {}
         self._match_transition = {}
         self._model = None
         self._user_feature_extractor = feature_extractor
         self.transitions = transition
-        self._svm_optimizer = svm_optimizer
 
     def _get_dep_relation(self, idx_parent, idx_child, depgraph):
         p_node = depgraph.nodes[idx_parent]
@@ -146,7 +144,7 @@ class TransitionParser(object):
         countProj = len(projective_dependency_graphs)
 
         for depgraph in projective_dependency_graphs:
-            conf = Configuration(depgraph, self._user_feature_extractor.extract_features, self._svm_optimizer)
+            conf = Configuration(depgraph, self._user_feature_extractor.extract_features)
 
             while conf.buffer:
                 b0 = conf.buffer[0]
@@ -233,7 +231,7 @@ class TransitionParser(object):
         finally:
             os.remove(input_file.name)
 
-    def parse(self, depgraphs, svm_optimizer):
+    def parse(self, depgraphs):
         """
         :param depgraphs: the list of test sentence, each sentence is represented as a dependency graph where the 'head' information is dummy
         :type depgraphs: list(DependencyGraph)
@@ -244,7 +242,7 @@ class TransitionParser(object):
             raise ValueError('No model trained!')
 
         for depgraph in depgraphs:
-            conf = Configuration(depgraph, self._user_feature_extractor.extract_features, svm_optimizer)
+            conf = Configuration(depgraph, self._user_feature_extractor.extract_features)
             while conf.buffer:
                 features = conf.extract_features()
                 col = []

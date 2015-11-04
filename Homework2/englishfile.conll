@@ -14,32 +14,3 @@
 6	fun	_	VBN	VBN	_	4	acomp	_	_
 7	.	_	.	.	_	4	p	_	_
 
-1	The	_	DT	DT	_	3	det	_	_
-2	non-callable	_	JJ	JJ	_	3	amod	_	_
-3	issue	_	NN	NN	_	0		_	_
-4	,	_	,	,	_	3	p	_	_
-5	which	_	WDT	WDT	_	8	nsubj	_	_
-6	can	_	MD	MD	_	8	aux	_	_
-7	be	_	VB	VB	_	8	auxpass	_	_
-8	put	_	VBN	VBN	_	3	rcmod	_	_
-9	back	_	RP	RP	_	17	nsubj	_	_
-10	to	_	TO	TO	_	17	aux	_	_
-11	the	_	DT	DT	_	12	det	_	_
-12	company	_	NN	NN	_	17	nsubjpass	_	_
-13	in	_	IN	IN	_	12	adpmod	_	_
-14	1999	_	CD	CD	_	13	adpobj	_	_
-15	,	_	,	,	_	12	p	_	_
-16	was	_	VBD	VBD	_	17	auxpass	_	_
-17	priced	_	VBN	VBN	_	8	ccomp	_	_
-18	at	_	IN	IN	_	17	adpmod	_	_
-19	99	_	CD	CD	_	20	num	_	_
-20	basis	_	NN	NN	_	21	compmod	_	_
-21	points	_	NNS	NNS	_	18	adpobj	_	_
-22	above	_	IN	IN	_	21	adpmod	_	_
-23	the	_	DT	DT	_	24	det	_	_
-24	Treasury	_	NNP	NNP	_	27	poss	_	_
-25	's	_	POS	POS	_	24	adp	_	_
-26	10-year	_	JJ	JJ	_	27	amod	_	_
-27	note	_	NN	NN	_	22	adpobj	_	_
-28	.	_	.	.	_	3	p	_	_
-

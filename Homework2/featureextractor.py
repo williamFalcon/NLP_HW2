@@ -39,7 +39,7 @@ class FeatureExtractor(object):
         return dep_left_most, dep_right_most
 
     @staticmethod
-    def extract_features(tokens, buffer, stack, arcs, svm_optimizer):
+    def extract_features(tokens, buffer, stack, arcs):
         """
         This function returns a list of string features for the classifier
 
@@ -61,13 +61,8 @@ class FeatureExtractor(object):
 
         result = []
 
-
-        global printed
-        if not printed:
-            print("This is not a very good feature extractor!")
-            printed = True
-
-        # an example set of features:
+        # add own fetures
+        svm_optimizer = FeatureOptimizer()
         for test in svm_optimizer.tests:
             svm_optimizer.insert_features_for_test(test, tokens, buffer, stack, arcs, result)
 

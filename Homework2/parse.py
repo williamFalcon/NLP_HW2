@@ -1,17 +1,21 @@
 from providedcode.transitionparser import TransitionParser
-from svmfeatureoptimizer import FeatureOptimizer
-from  providedcode.dependencygraph import  DependencyGraph
+from providedcode.dependencygraph import DependencyGraph
 import sys
+
 
 if __name__ == '__main__':
 
     # Extract model name
-    model = 'english.model'
-    for arg in sys.argv:
+    model = None
+    filename = None
+
+    # extract params
+    for idx, arg in enumerate(sys.argv):
+        if idx == 1:
+            filename = arg
+
         if '.model' in arg:
             model = arg
-
-    filename = 'englishfile'
 
     # Check for model
     if model is None:
@@ -24,8 +28,6 @@ if __name__ == '__main__':
         sys.exit(0)
 
     try:
-        # load feature optimizer
-        feature_optimizer = FeatureOptimizer()
 
         # load sentences
         with open(filename) as fle:
@@ -41,7 +43,7 @@ if __name__ == '__main__':
 
         # parse sentences
         print 'parsing sentences'
-        parsed = tp.parse(dp_sentences, feature_optimizer)
+        parsed = tp.parse(dp_sentences)
 
         # write parsed to conll file
         with open(filename + '.conll', 'w') as f:
@@ -51,5 +53,5 @@ if __name__ == '__main__':
 
         print 'parsing complete'
 
-    except NotImplementedError:
+    except Exception:
         print 'error'
