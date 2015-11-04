@@ -54,11 +54,12 @@ A - To edit features, I added an svmfeatureoptimizer class. This class uses
 
 
 	Swedish model:
-	Features = ['STK_-1_WORD_', 'STK_-1_TAG_', 'STK_-1_LEMMA_', 'STK_-1_LDEP_', 'STK_-1_RDEP_',
-    	        'STK_-2_TAG_',
-        	    'BUF_0_WORD_', 'BUF_0_TAG_', 'BUF_0_LEMMA_', 'BUF_0_LDEP_', 'BUF_0_RDEP_',
-            	'BUF_1_TAG_', 'BUF_1_WORD_'
-           		]
+	Features = ['STK_-1_WORD_', 'STK_-1_TAG_', 'STK_-1_LEMMA_', 					'STK_-1_LDEP_', 'STK_-1_RDEP_',
+	            'STK_-2_TAG_',
+	            'BUF_0_WORD_', 'BUF_0_TAG_', 'BUF_0_LEMMA_', 'BUF_0_LDEP_', 'BUF_0_RDEP_',
+	            'BUF_1_TAG_', 'BUF_1_WORD_',
+	            'BUF_2_TAG_'
+	           ]
 
 
 	English model:
@@ -70,7 +71,7 @@ A - To edit features, I added an svmfeatureoptimizer class. This class uses
 
 
 	Danish model:
-	Features = ['STK_-1_WORD_', 'STK_-1_TAG_', 'STK_-1_LEMMA_', 'STK_-1_LDEP_', 'STK_-1_RDEP_',
+	Features = ['STK_-1_WORD_', 'STK_-1_TAG_', 'STK_-1_LEMMA_', 					'STK_-1_LDEP_', 'STK_-1_RDEP_',
 	            'STK_-2_TAG_',
 	            'BUF_0_WORD_', 'BUF_0_TAG_', 'BUF_0_LEMMA_', 'BUF_0_LDEP_', 'BUF_0_RDEP_',
 	            'BUF_1_TAG_', 'BUF_1_WORD_',
@@ -83,8 +84,8 @@ C - Scores:
 
 	Swedish
 	Results:
-		UAS: 0.786695877315 
-		LAS: 0.679944234216
+		UAS: 0.790878311093 
+		LAS: 0.682931686915
 
 	Danish
 	Results:

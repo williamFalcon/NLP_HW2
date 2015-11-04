@@ -68,7 +68,7 @@ class FeatureOptimizer():
 
     def build_feature_tests(self):
 
-        self.tests = self.active_tests
+        self.tests = self.danish_tests
         #tests = self.build_linear_combinations()
         # run each test individually, then
         #combinations = self.powerset(tests)
