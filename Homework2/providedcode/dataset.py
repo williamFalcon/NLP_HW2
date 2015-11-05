@@ -1,8 +1,7 @@
 from dependencycorpusreader import DependencyCorpusReader
 import os
 
-#BASE_PATH = '/home/coms4705/Documents/Homework2/data/'
-BASE_PATH = './data/'
+BASE_PATH = '/home/coms4705/Documents/Homework2/data/'
 
 def get_swedish_train_corpus():
     root = os.path.join(BASE_PATH, 'swedish/talbanken05')

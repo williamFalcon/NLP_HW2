@@ -27,6 +27,13 @@ B - Scores with the badfeatures model on swedish are:
 	UAS: 0.229038040231 
 	LAS: 0.125473013344
 
+	If I replace badfeatures.model with swedish.model, the new scores are:
+	UAS: 0.235610436168 
+	LAS: 0.128659629556
+
+	Although there is a very slight improvement in performance, it shows that the chosen features are not particularly informative.
+
+	Note: The question is a bit unclear, so I've posted both scores.
 *******************************************
 
 
@@ -54,7 +61,8 @@ A - To edit features, I added an svmfeatureoptimizer class. This class uses
 
 
 	Swedish model:
-	Features = ['STK_-1_WORD_', 'STK_-1_TAG_', 'STK_-1_LEMMA_', 					'STK_-1_LDEP_', 'STK_-1_RDEP_',
+	Features = ['STK_-1_WORD_', 'STK_-1_TAG_', 'STK_-1_LEMMA_', 					
+				'STK_-1_LDEP_', 'STK_-1_RDEP_',
 	            'STK_-2_TAG_',
 	            'BUF_0_WORD_', 'BUF_0_TAG_', 'BUF_0_LEMMA_', 'BUF_0_LDEP_', 'BUF_0_RDEP_',
 	            'BUF_1_TAG_', 'BUF_1_WORD_',
@@ -71,7 +79,8 @@ A - To edit features, I added an svmfeatureoptimizer class. This class uses
 
 
 	Danish model:
-	Features = ['STK_-1_WORD_', 'STK_-1_TAG_', 'STK_-1_LEMMA_', 					'STK_-1_LDEP_', 'STK_-1_RDEP_',
+	Features = ['STK_-1_WORD_', 'STK_-1_TAG_', 'STK_-1_LEMMA_', 					
+				'STK_-1_LDEP_', 'STK_-1_RDEP_',
 	            'STK_-2_TAG_',
 	            'BUF_0_WORD_', 'BUF_0_TAG_', 'BUF_0_LEMMA_', 'BUF_0_LDEP_', 'BUF_0_RDEP_',
 	            'BUF_1_TAG_', 'BUF_1_WORD_',
@@ -95,12 +104,6 @@ C - Scores:
 D - The arc-eager shift-reduce parser has a O(N) complexity, where N is the number of words in the sentence.
 	The parser is greedy because it makes the best decision it can think of and moves on from there. It is efficient because it does not backup or backtracks from it's decision.
 	Generally a trade-off is that you also have to train an SVM (or similar classifier) to make the decisions (shift, reduce, left-arc, right-arc) for the parser. This can take a very long time if the model is too complex. This also adds the complexity of feature selection for the SVM, which in itself can be a very complex problem. 
-
-
-	English
-	Results:
-		UAS: 0.748148148148 
-		LAS: 0.708641975309
 
 
 *******************************************
