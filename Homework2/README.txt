@@ -9,7 +9,7 @@ NLP - HW2
 QUESTION 1:
 
 A - Images: Images are located under Homerwork2/.
-			They are: figure_en.png, figure_dn.png, figure_sw.png
+			They are: figure_en.png, figure_dn.png, figure_sw.png, figure_ko.png
 
 B - In a projective dependency graph, lines do not cross over each other. If we see a graph were all the lines above the words do not cross another line, this graph is projective.
 
@@ -102,9 +102,20 @@ D - The arc-eager shift-reduce parser has a O(N) complexity, where N is the numb
 		UAS: 0.748148148148 
 		LAS: 0.708641975309
 
+
 *******************************************
 QUESTION 4:
 *******************************************
+
+A,B,C - All complete. Please see the parse.py file in the directory
+
+
+
+
+
+
+
+
 
 
 
